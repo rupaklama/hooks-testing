@@ -15,6 +15,10 @@ Enzyme.configure({ adapter: new EnzymeAdapter() });
 // This test setup demonstrates a foolproof way of testing components that works for 
 // both kinds of components (components that are using these hooks or connected components).
 
+// NOTE: Avoid using 'redux-mock-store'
+// Because if your reducers fails, the mock-store method will not catch it.
+// Instead use Real Redux Store. Your reducer automatically gets initialized with the correct initial state.
+
 // our component depends on the redux store, we must also wrap it in a Provider HOC, 
 // exported by react-redux. And since the purpose of this tutorial is testing our component fully, 
 // including the redux side, we must create a 'mock store' for our redux <Provider /> with 
